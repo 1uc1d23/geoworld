@@ -16,6 +16,10 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
+      {
+        name: "google-site-verification",
+        content: "5cYjAiwY3M53_WWlk8vm7ektsbCilvmGEV22DD-X_JQ",
+      },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -41,12 +45,21 @@ function Index() {
   return (
     <div className="min-h-screen">
       <Navbar query={query} onQueryChange={setQuery} />
+
       {featured && (
-        <FeaturedGame name={featured.name} embedUrl={`/embed/${featured.name.toLowerCase().replace(/\s+/g, '-')}`} slug={featured.slug} />
+        <FeaturedGame
+          name={featured.name}
+          embedUrl={`/embed/${featured.name
+            .toLowerCase()
+            .replace(/\s+/g, "-")}`}
+          slug={featured.slug}
+        />
       )}
+
       <div id="games">
         <GameGrid games={filtered} title="All Games" />
       </div>
+
       <SEOInfo />
       <Footer />
     </div>
