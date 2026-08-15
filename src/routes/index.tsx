@@ -28,7 +28,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "/og-gameplay.png" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "icon", href: "/favicon.ico" },
+    ],
   }),
   component: Index,
 });
@@ -65,3 +68,5 @@ function Index() {
     </div>
   );
 }
+
+export default Index;
